@@ -20,6 +20,7 @@ function MakeX1(mencion, message) {
     // Função do round do P2, esperamos sua resposta, vendo se é End ou Punch...
     // Se for End encerra o comando, se for Punch calculamos o dano, tiramos da vida do P1...
     // Verificamos se a vida do P1 chegou a zero, senão damos início ao Roundo do P2 
+
     function P2RoundFightGame() {
 
         round = 2;

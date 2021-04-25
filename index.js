@@ -18,7 +18,8 @@ client.on('ready', () => {
 client.on('message', async msg => {
     let command = ''
     if (msg.content.startsWith(prefix)) {
-        command = msg.content.replace(prefix, "")
+        const argvs = msg.content.replace(prefix, "").split(" ");
+        command = argvs.shift().toLocaleLowerCase();
     } else {
         return
     }
