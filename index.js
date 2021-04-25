@@ -4,15 +4,27 @@ const { OpusEncoder } = require('@discordjs/opus')
 const client = new Discord.Client()
 const ytdl = require('ytdl-core-discord');
 const prefix = "+"
+const ServerId = '825093171305906177'
+const RoleChannelId = '835881314091008010'
+const RolesMessageId = '835886522435633162'
+
 
 const ping = require('./comandos/ping.js')
 const aula = require('./comandos/aula')
 const comandos = require('./comandos/comandos')
 const x1 = require('./comandos/x1.js')
+const GiveRole = require('./comandos/giverole.js')
 
 
-client.on('ready', () => {
+
+client.on('ready', async() => {
     console.log(`Logged in as ${client.user.tag}!`)
+    let s = await client.guilds.cache.get(ServerId)
+    let c = await s.channels.cache.get(RoleChannelId)
+    c.messages.fetch({ around: RolesMessageId, limit: 1 })
+
+
+
 });
 
 client.on('message', async msg => {
@@ -25,6 +37,22 @@ client.on('message', async msg => {
     }
     if (command === 'comandos') {
         comandos(prefix, msg)
+    }
+    if (command === 'roles') {
+
+        const roleEmbed = new Discord.MessageEmbed()
+            .setTitle(`Seja bem vindo, reaja com o emoji de sua turma para desfrutar melhor do servidor !!!`)
+            .setDescription('Turma 2020 : 👽 , Turma 2021: 👾 .')
+            .setColor('#cf48db')
+            .setImage(client.user.displayAvatarURL({ size: 4096, dynamic: true }));
+
+        msg.channel.send(roleEmbed).then(sentMessage => {
+
+            sentMessage.react('👽');
+            sentMessage.react('👾');
+            console.log(sentMessage.id)
+
+        });
     }
     if (command === 'ping') {
         ping(msg)
@@ -50,6 +78,20 @@ client.on('message', async msg => {
 
 });
 
+client.on("messageReactionAdd", async(reaction, user, message) => {
+
+    // Vendo se a reação é parcial...
+    reaction.users.remove(user.id);
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (user.bot) return
+    if (reaction.message.id == RolesMessageId) {
+
+        if (reaction.emoji.name === '👽' || reaction.emoji.name === '👾') GiveRole(user, reaction.emoji.name, await client.guilds.cache.get(ServerId))
+        return
+
+
+    }
+})
 client.on('voiceStateUpdate', async(oldState, newState) => {
     if (newState.channelID == '835234047596298270') {
         const connection = await newState.channel.join();
