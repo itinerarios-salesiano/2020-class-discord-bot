@@ -4,9 +4,9 @@ const { OpusEncoder } = require('@discordjs/opus')
 const client = new Discord.Client()
 const ytdl = require('ytdl-core-discord');
 const prefix = "+"
-const ServerId = '825093171305906177'
-const RoleChannelId = '835881314091008010'
-const RolesMessageId = '835886522435633162'
+const ServerId = '690946366343610400'
+const RoleChannelId = '837721659267219457'
+const RolesMessageId = '837721685042004018'
 
 
 const ping = require('./comandos/ping.js')
@@ -14,29 +14,30 @@ const aula = require('./comandos/aula')
 const comandos = require('./comandos/comandos')
 const x1 = require('./comandos/x1.js')
 const GiveRole = require('./comandos/giverole.js')
-
-
+const aviso = require('./comandos/aviso.js')
 
 client.on('ready', async() => {
     console.log(`Logged in as ${client.user.tag}!`)
     let s = await client.guilds.cache.get(ServerId)
     let c = await s.channels.cache.get(RoleChannelId)
     c.messages.fetch({ around: RolesMessageId, limit: 1 })
-
-
-
 });
 
 client.on('message', async msg => {
     let command = ''
-    if (msg.content.startsWith(prefix)) {
-        const argvs = msg.content.replace(prefix, "").split(" ");
-        command = argvs.shift().toLocaleLowerCase();
+    const argvs = msg.content.split(" ");
+    if (argvs[0].startsWith(prefix)) {
+        command = argvs[0].replace(prefix, "").toLocaleLowerCase();
     } else {
         return
     }
     if (command === 'comandos') {
         comandos(prefix, msg)
+    }
+    if (command === 'aviso') {
+        if (msg.member.roles.cache.some(role => role.name === 'Professor')) {
+            aviso(msg, argvs)
+        }
     }
     if (command === 'roles') {
 

@@ -15,6 +15,7 @@ const turmas = [
   }
 ]
 
+
 function aula(msg){
   let texto = ''
   let color = ''
