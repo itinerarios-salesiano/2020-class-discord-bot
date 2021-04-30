@@ -5,4 +5,7 @@ Para rodar você precisa primeiro criar um arquivo `.env`, neste arquivo adicion
 
 ```
 DISCORD_TOKEN=xxx
+SERVER_ID=690946366343610400
+ROLES_CHANNEL_ID=837777930104471622
+ROLES_MSG_ID=837777953000783872
 ```

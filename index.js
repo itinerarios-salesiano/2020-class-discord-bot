@@ -4,9 +4,9 @@ const { OpusEncoder } = require('@discordjs/opus')
 const client = new Discord.Client()
 const ytdl = require('ytdl-core-discord');
 const prefix = "+"
-const ServerId = '825093171305906177'
-const RoleChannelId = '835881314091008010'
-const RolesMessageId = '837767220310442038'
+const ServerId = process.env.SERVER_ID
+const RoleChannelId = process.env.ROLES_CHANNEL_ID
+const RolesMessageId = process.env.ROLES_MSG_ID
 
 
 const ping = require('./comandos/ping.js')
