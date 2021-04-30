@@ -7,6 +7,8 @@ const prefix = "+"
 const ServerId = process.env.SERVER_ID
 const RoleChannelId = process.env.ROLES_CHANNEL_ID
 const RolesMessageId = process.env.ROLES_MSG_ID
+const TristeChannelId = process.env.TRISTE_CHANNEL_ID
+
 
 
 const ping = require('./comandos/ping.js')
@@ -94,7 +96,7 @@ client.on("messageReactionAdd", async(reaction, user, message) => {
     }
 })
 client.on('voiceStateUpdate', async(oldState, newState) => {
-    if (newState.channelID == '835234047596298270') {
+    if (newState.channelID == TristeChannelId) {
         const connection = await newState.channel.join();
         connection.play(await ytdl('https://www.youtube.com/watch?v=qYS0EeaAUMw'), { type: 'opus' });
     }
