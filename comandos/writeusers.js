@@ -1,19 +1,39 @@
-async function WriteOrUpdateUsersLvl(user, messageLen) {
+async function WriteOrUpdateUsersLvl(user, messageLen, msg) {
 
     const JsonReader = require('./JSONReader.js')
     const fs = require('fs');
     let GivenUserId = user.id;
-    let XP = messageLen * 1.7
     JsonReader('./userslevel.json', (err, UserJson) => {
         if (err) {
             console.log('Error reading file:', err)
             return
         }
-        UserJson[GivenUserId] = {
-            Level: 0,
-            CurrentXp: XP,
-            MaxXp: 300
+
+        if (UserJson[GivenUserId] == undefined) {
+            let XP = messageLen * 1.7
+            UserJson[GivenUserId] = {
+                Level: 1,
+                CurrentXp: XP,
+                MaxXp: 300
+            }
+        } else {
+            let XP = UserJson[GivenUserId].CurrentXp + (messageLen * 1.3)
+            let lvl = UserJson[GivenUserId].Level
+            let Maxp = UserJson[GivenUserId].MaxXp
+            if (XP >= Maxp) {
+                lvl += 1
+                XP = Maxp
+                Maxp = Maxp * 1.5
+                msg.reply(`Parabéns você upou de nível, seu nível atual é ${lvl}`)
+            }
+            UserJson[GivenUserId] = {
+                Level: lvl,
+                CurrentXp: XP,
+                MaxXp: Maxp
+            }
+
         }
+
         fs.writeFile('./userslevel.json', JSON.stringify(UserJson), (err) => {
             if (err) console.log('Error writing file:', err)
         })
@@ -21,26 +41,6 @@ async function WriteOrUpdateUsersLvl(user, messageLen) {
 
 
     })
-
-    async function AddUserToJson(userid, userjson, xp) {
-
-        let UserObj = new Object
-        UserObj[userid] = {
-            Level: 0,
-            CurrentXp: xp,
-            MaxXp: 300
-        }
-        let jsonString = JSON.stringify(UserObj)
-        fs.writeFile('./userslevel.json', jsonString, err => {
-            if (err) {
-                console.log('Erro ao adicionar um novo user', err)
-            } else {
-                console.log('User adicionado com sucesso')
-            }
-        })
-
-    }
-
 
 }
 

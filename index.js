@@ -27,7 +27,9 @@ client.on('ready', async() => {
 });
 
 client.on('message', async msg => {
-    WriteOrUpdateUsers(msg.author, msg.content.length);
+
+    if (msg.author.bot) return
+    WriteOrUpdateUsers(msg.author, msg.content.length, msg);
     let command = ''
     const argvs = msg.content.split(" ");
     if (argvs[0].startsWith(prefix)) {
