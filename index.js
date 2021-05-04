@@ -18,6 +18,7 @@ const x1 = require('./comandos/x1.js')
 const GiveRole = require('./comandos/giverole.js')
 const aviso = require('./comandos/aviso.js')
 const WriteOrUpdateUsers = require('./comandos/writeusers.js')
+const CheckLvl = require('./comandos/CheckLvl.js')
 
 client.on('ready', async() => {
     console.log(`Logged in as ${client.user.tag}!`)
@@ -73,6 +74,8 @@ client.on('message', async msg => {
         aula(msg)
     }
     if (command === "x1") x1(msg.mentions.users.first(), msg);
+
+    if (command === 'lvl') CheckLvl(msg.author, msg)
 
     if (command === 'chegae') {
         if (msg.member.voice.channel) {

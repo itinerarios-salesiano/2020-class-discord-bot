@@ -9,27 +9,27 @@ async function WriteOrUpdateUsersLvl(user, messageLen, msg) {
             return
         }
 
-        if (UserJson[GivenUserId] == undefined) {
-            let XP = messageLen * 1.7
-            UserJson[GivenUserId] = {
-                Level: 1,
-                CurrentXp: XP,
-                MaxXp: 300
-            }
-        } else {
+        try {
             let XP = UserJson[GivenUserId].CurrentXp + (messageLen * 1.3)
             let lvl = UserJson[GivenUserId].Level
             let Maxp = UserJson[GivenUserId].MaxXp
             if (XP >= Maxp) {
-                lvl += 1
+                lvl = lvl + 1
                 XP = Maxp
-                Maxp = Maxp * 1.5
+                Maxp = Maxp * lvl
                 msg.reply(`Parabéns você upou de nível, seu nível atual é ${lvl}`)
             }
             UserJson[GivenUserId] = {
                 Level: lvl,
                 CurrentXp: XP,
                 MaxXp: Maxp
+            }
+        } catch (err) {
+            let XP = messageLen * 1.3
+            UserJson[GivenUserId] = {
+                Level: 1,
+                CurrentXp: XP,
+                MaxXp: 800
             }
 
         }
