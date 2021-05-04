@@ -17,6 +17,7 @@ const comandos = require('./comandos/comandos')
 const x1 = require('./comandos/x1.js')
 const GiveRole = require('./comandos/giverole.js')
 const aviso = require('./comandos/aviso.js')
+const WriteOrUpdateUsers = require('./comandos/writeusers.js')
 
 client.on('ready', async() => {
     console.log(`Logged in as ${client.user.tag}!`)
@@ -26,6 +27,7 @@ client.on('ready', async() => {
 });
 
 client.on('message', async msg => {
+    WriteOrUpdateUsers(msg.author, msg.content.length);
     let command = ''
     const argvs = msg.content.split(" ");
     if (argvs[0].startsWith(prefix)) {
