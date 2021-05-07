@@ -1,6 +1,5 @@
 require('dotenv').config()
 const Discord = require('discord.js')
-const { OpusEncoder } = require('@discordjs/opus')
 const client = new Discord.Client()
 const ytdl = require('ytdl-core-discord');
 const prefix = "+"
