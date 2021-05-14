@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-function comandos(prefix, msg) {
+function comandos(prefix, msg, client) {
     const embed = new Discord.MessageEmbed()
         .setTitle('Comandos do BOT')
         .setColor(0x00ff5e)
