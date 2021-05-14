@@ -40,7 +40,7 @@ client.on('message', async msg => {
         return
     }
     if (command === 'comandos') {
-        comandos(prefix, msg)
+        comandos(prefix, msg, client)
     }
     if (command === 'aviso') {
         if (msg.member.roles.cache.some(role => role.name === 'Professor')) {
