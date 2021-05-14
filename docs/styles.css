@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+html, body{
+    margin: auto;
+    padding: auto;
+    background: #1C1E26;
+    color: #bec3cd;
+    font-family: 'Alata', sans-serif;
+}
+.hero{
+  padding: 3%;
+  text-align: center;
+}
+.main-bar{
+    color: rgb(204, 20, 20);
+}
+.buttonhead{
+    border: none;
+    font-size: 2rem;
+    background-color: #0082be;
+    color: #bec3cd;
+    font-family: 'Alata', sans-serif;
+    margin-left: 2rem;
+}
+.buttonhead:hover{
+    color: black;
+    text-decoration: underline;
+}
+.icone{
+    width: 75px;
+    color: #0082be;
+}
+.main-title{
+    font-size: 12rem;
+    margin: auto;
+}
+.descricao{
+    margin: 1rem;
+    padding: auto;
+    font-size: 1.8rem;
+}
+.botaoinvite{
+    margin: auto;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #0082be;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1.3rem;
+}
+.botaoinvite:hover{
+    background: #0082be;
+    color: #0d2b68;
+}
+
+.title{
+    display: flex-start;
+    margin: auto;
+    text-align: center;
+    padding: 3rem;
+}
+
+.informacoes{
+    display: inline;
+    
+}
+
+.comands{
+    max-width: 20rem;
+    text-align: justify;
+}
+
+.navegation-bar{
+    display: flex;
+    background-color:  #0082be;
+    width: 100%;
+}
+
+.list-text{
+    display: inline;
+    list-style: none;
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+
+.list-text:hover{
+    text-decoration: underline;
+    color: white;
+}
+
+.l1sta{
+    border-radius: 50px;
+    background-color: #1C1E26;
+    margin: 10px;
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    width: 20%;
+}
+
+.subgrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
+    
+}
+
+.subgrid > div {
+	background: rgba(0,0,0,.3);
+    border-radius: 10px;
+    padding: 1rem;
+    list-style: none;
+}
+
+.information{
+    background-color: #a1a1a1;
+    height: clamp(400);
+}
