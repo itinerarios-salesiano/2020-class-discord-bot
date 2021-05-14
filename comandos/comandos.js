@@ -5,7 +5,7 @@ function comandos(prefix, msg) {
         .setTitle('Comandos do BOT')
         .setColor(0x00ff5e)
         .setDescription('Lista de Comandos válidos')
-        .setImage('https://i.imgur.com/0dbXdP1.jpeg')
+        .setImage(client.user.displayAvatarURL({ size: 4096, dynamic: true }))
         .addField(`${prefix}ping`, 'Este comando retorna Pong!.')
         .addField(`${prefix}aula`, 'Este comando manda o link da sua aula do itinerário.')
         .addField(`${prefix}lvl`, 'Este comando retorna as informações do seu level.')

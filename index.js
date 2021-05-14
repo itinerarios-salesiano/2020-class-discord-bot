@@ -18,6 +18,8 @@ const GiveRole = require('./comandos/giverole.js')
 const aviso = require('./comandos/aviso.js')
 const WriteOrUpdateUsers = require('./comandos/writeusers.js')
 const CheckLvl = require('./comandos/CheckLvl.js')
+const Info = require('./comandos/info.js')
+
 
 client.on('ready', async() => {
     console.log(`Logged in as ${client.user.tag}!`)
@@ -84,6 +86,8 @@ client.on('message', async msg => {
             msg.reply('O vacilão, quer que eu entre onde? Entra ai nun canal de voz!');
         }
     }
+    if (command === 'info') Info(msg.mentions.users.first(), msg);
+
 
 });
 
