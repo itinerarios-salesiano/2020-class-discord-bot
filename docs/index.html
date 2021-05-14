@@ -2,75 +2,97 @@
 <html>
 
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Flemingbot</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
-  <script src='main.js'></script>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Flemingbot</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <script src='main.js'></script>
 </head>
 
 <body id="page-template">
 
-  <!-- Header -->
+    <!-- Header -->
 
-  <header>
-    <div class="navegation-bar">
-      <ul class="list">
-        <li class="list-text">
-          Home
-        </li>
-        <li class="list-text">
-          Sobre o bot
-        </li>
-        <li class="list-text">
-          Detalhes
-        </li>
-      </ul>
-      <button class="buttonhead" onclick="aviso()">Dica sincera</button>
-    </div>
-  </header>
+    <header>
+        <nav class="navegation-bar">
+            <ul class="list">
+                <li>
+                    Home
+                </li>
+                <li>
+                    Sobre o bot
+                </li>
+                <li>
+                    Detalhes
+                </li>
+            </ul>
+            <button class="buttonhead" onclick="aviso()">Dica sincera</button>
+        </nav>
+    </header>
 
-  <!-- Main Page -->
+    <!-- Main Page -->
 
-  <main>
-    <section class="first-section">
-      <div class="hero">
-        <h1 class="main-title">
-          Fleming
-        </h1>
-        <p class="descricao">O grande camarada Fleming vai salvar a sua vida!</p>
-        <a class="botaoinvite"
-          href="https://discord.com/api/oauth2/authorize?client_id=832690971719499787&permissions=8&scope=bot"
-          target="_blank">Convidar para o meu server</a>
-      </div>
-    </section>
-    <section class="information">
-      <h2 class="title">
-        O que ele faz?
-      </h2>
+    <main>
+        <section class="first-section">
+            <div class="hero">
+                <h1 class="main-title">
+                    Fleming
+                </h1>
+                <p class="text">O grande camarada Fleming vai salvar a sua vida!</p>
+                <a class="botaoinvite" href="https://discord.com/api/oauth2/authorize?client_id=832690971719499787&permissions=8&scope=bot" target="_blank">Convidar para o meu server</a>
+            </div>
+        </section>
+        <section class="information">
+            <h2 class="title">
+                Funcionalidades
+            </h2>
 
-      <div class="item subgrid">
-        <div>+Ping <div>Reage a sua mensagem com 3 emojis, escolha um deles para obter o poder</div>
+            <div class="item subgrid">
+                <div>
+                    <div class="comand_title"> +ping </div>
+                    <div>Este comando faz o bot reagir a sua mensagem com 3 emojis, escolha um deles para obter o poder.</div>
+                </div>
+                <div>
+                    <div class="comand_title"> +aula </div>
+                    <div>Este comando manda o link da sua aula do itinerário.</div>
+                </div>
+                <div>
+                    <div class="comand_title"> +lvl </div>
+                    <div>Este comando retorna as informações do seu level.</div>
+                </div>
+                <div>
+                    <div class="comand_title"> +x1 </div>
+                    <div>Este comando te permite tirar um X1 com seu amigo.</div>
+                </div>
+                <div>
+                    <div class="comand_title"> +chegae </div>
+                    <div>Este comando faz eu entrar na call e tocar uma musica pog!</div>
+                </div>
+                <div>
+                    <div class="comand_title"> +info </div>
+                    <div>Este comando retorna as informações do usuário mencionado.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div id="membros">
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="rodape">
+            <p>assinaturas uau</p>
         </div>
-        <div>+Aula <div>Este comando manda o link da sua aula do itinerário</div>
-        </div>
-        <div>+lvl <div>Este comando retorna as informações do seu level.</div>
-        </div>
-        <div>+x1 <div>Este comando te permite tirar um X1 com seu amigo.</div>
-        </div>
-        <div>+chegae<div>Este comando faz eu entrar na call e tocar uma musica pog!</div>
-        </div>
-      </div>
-    </section>
+    </footer>
 
-    <section>
-      <div id="membros">
-
-      </div>
-    </section>
-
-  </main>
 </body>
 
 </html>

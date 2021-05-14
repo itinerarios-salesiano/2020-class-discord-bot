@@ -12,9 +12,6 @@ function comandos(prefix, msg) {
         .addField(`${prefix}x1`, 'Este comando te permite tirar um X1 com seu amigo.')
         .addField(`${prefix}chegae`, 'Este comando faz eu entrar na call e tocar uma musica pog!')
         .addField(`${prefix}info`, 'Este comando retorna as informações do usuário mencionado.')
-
-
-
     msg.channel.send(embed)
 }
 
